@@ -1,0 +1,82 @@
+===============================================================================
+315 CA - DINU ION -IRINEL
+315 CA - SERBAN BIANCA-SANZIANA
+
+===============================================================================
+
+                Structuri de Date - Rope Data Structure
+
+===============================================================================
+
+Implementare:
+
+Dinu Ion Irinel:
+
+Functii:
+
+makeRopeNode
+- in cadrul acestei functii am alocat si am creat nodul,am redirectat
+cei doi pointeri copii catre NULL, am actualizat valoarea nodului si am
+calculat greutate ca fiind lungimea string-ului transmis ca parametru
+
+makeRopeTree
+- in cadrul functiei am creat noul rope si am actualizat radacina acestuia
+
+concat
+- in cadrul functiei am creat o noua radacina si respectiv un nou rope
+iar apoi am legat radacinile celor doua rope-uri transmise ca parametru
+ca fiind copii noului rope creat. In final am calculat si noua greutate.
+
+concat_nodes
+- am procedat in mod similar functiei concat doar ca rationamentul a 
+fost aplicat pentru noduri
+
+split
+- in cadrul acestei functii am creat doua noduri care reprezinta referinte
+la cele doua ropuri ce urmeaza sa fie create. Apoi am apelat o functie
+recursiva __split care modifica aceste noduri, iar in final am returnat
+cele doua perechei obtinute care reprezint practic radacinile rope-urilor.
+
+__split
+- in cadrul acestei functii am trat cazul in care index-ul este negativ,
+iar in caz afirmativ am concatenat cele doua noduri left si right.Altfel
+am copiat partea stanga a string-ului intr-un string temporar, am creat
+un nod stang cu acest string, un nod drept cu partea ramasa, iar apoi am
+concatenat cele doua noduri.In final am apelat functia recursiva pentru 
+cei doi fii si am reactualizat greutatea.
+
+insert
+- in cadrul functiei am impartit string-ul in functie de index,am creat
+un nou rope si am aplicat doua concatenari succesive cu prima jumate si 
+cea de-a doua jumate a string-ului original.
+
+===============================================================================
+
+Serban Bianca-Sanziana:
+
+
+Functii:
+
+index_rope
+- in cadrul acestei functii am apelat o functie recursiva __indexRope
+pornind din radacina rope-ului
+
+__indexRope
+- in cadrul acestei functii am parcurs recursiv subarborele drept,respectiv
+subarborele stang iar la final am returnat index-ul de pe pozitia dorita
+
+search
+- in cadrul acestei functii am alocat memorie pentru string, l-am initializat
+cu terminatorul de sir, iar apoi cat timp intervalul dorit este valid am 
+extras cate un caracter pe rand si l-am adaugat in string-ul rezultat
+
+delete
+- in cadrul acestei functii am impartit sirul pe baza index-ului start,
+am creat un nou rope cu partea dreapta obtinuta in urma split-ului,
+am aplicat un nou split in functie de len, iar la final am concatenat primul
+string obtinut cu cel de-al doilea si am returnat rope-ul 
+
+Pentru erorile legate de alocarea memoriei am folosit macro-ul
+DIE preluat din headerul utils.h
+
+===============================================================================
